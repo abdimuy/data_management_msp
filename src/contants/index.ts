@@ -1,0 +1,12 @@
+export const PRIMARY_COLOR = '#6146C6';
+export const SECONDARY_COLOR = '#FFCE93';
+export const ERROR_COLOR = '#FF6157';
+export const SUCCESS_COLOR = '#61C877';
+export const DARK_COLOR = '#06112D';
+export const GRAY_COLOR = '#6A7081';
+export const PRIMARY_BACKGROUND_COLOR = '#f1f1f6';
+// export const PRIMARY_BACKGROUND_COLOR = '#';
+export const SECONDARY_BACKGROUND_COLOR = 'white';
+export const PRIMARY_FONT_COLOR = 'BLACK';
+export const SECONDARY_FONT_COLOR = 'WHITE';
+export const THIRD_FONT_COLOR = '#5933e8';

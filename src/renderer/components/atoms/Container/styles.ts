@@ -1,0 +1,34 @@
+import { css } from 'styled-components';
+import { IContainerStyles } from './IContainer';
+
+export const stylesContainer = css<IContainerStyles>`
+  display: flex;
+  background-color: ${({ backgroundColor = '#fafafa' }) => backgroundColor};
+  flex-direction: ${({ flexDirection = 'row' }) => flexDirection};
+  justify-content: ${({ justifyContent = 'flex-start' }) => justifyContent};
+  align-items: ${({ alignItems = 'stretch' }) => alignItems};
+  padding-top: ${({ paddingVertical = '0px' }) => paddingVertical};
+  padding-bottom: ${({ paddingVertical = '0px' }) => paddingVertical};
+  padding-left: ${({ paddingHorizontal = '0px' }) => paddingHorizontal};
+  padding-right: ${({ paddingHorizontal = '0px' }) => paddingHorizontal};
+  margin-top: ${({ marginVertical = '0px' }) => marginVertical};
+  margin-bottom: ${({ marginVertical = '0px' }) => marginVertical};
+  margin-left: ${({ marginHorizontal = '0px' }) => marginHorizontal};
+  margin-right: ${({ marginHorizontal = '0px' }) => marginHorizontal};
+  margin: ${({ margin = '0px' }) => margin};
+  border-radius: ${({ borderRadius = 0 }) => borderRadius};
+  border-width: ${({ borderWidth = '0px' }) => borderWidth};
+  border-color: ${({ borderColor = 'transparent' }) => borderColor};
+  border-style: solid;
+  width: ${({ width = 'auto' }) => width};
+  min-width: ${({ minWidth = '0px' }) => minWidth};
+  max-width: ${({ maxWidth = '100%' }) => maxWidth};
+  height: ${({ height = 'auto' }) => height};
+  min-height: ${({ minHeight = '0px' }) => minHeight};
+  max-height: ${({ maxHeight = '100%' }) => maxHeight};
+  gap: ${({ gap = '0px' }) => gap};
+  box-sizing: border-box;
+  overflow: ${({ overflow = 'visible' }) => overflow};
+  overflow-x: ${({ overflowX = 'visible' }) => overflowX};
+  overflow-y: ${({ overflowY = 'visible' }) => overflowY};
+`;
