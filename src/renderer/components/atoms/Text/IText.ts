@@ -9,6 +9,7 @@ export interface ITextStyles {
   lineHeight?: number;
   margin?: string;
   padding?: string;
+  width?: string;
 }
 
 export interface ITextProps {

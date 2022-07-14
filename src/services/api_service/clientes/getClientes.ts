@@ -1,10 +1,10 @@
 import { API } from '../connection';
 
 const getClientes = (text: string) => {
-  return new Promise<never[]>(async (resolve, reject) => {
+  return new Promise<any[]>(async (resolve, reject) => {
     try {
       const response = await API.get('/clientes/search?text=' + text);
-      resolve(response.data);
+      resolve(response?.data.body);
     } catch (error) {
       reject(error);
     }

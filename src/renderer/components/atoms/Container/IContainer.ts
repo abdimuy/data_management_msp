@@ -23,13 +23,15 @@ export interface IContainerStyles {
   minHeight?: number | string;
   maxHeight?: number | string;
   gap?: string;
-  overflow?: 'visible' | 'hidden' | 'scroll';
-  overflowX?: 'visible' | 'hidden' | 'scroll';
-  overflowY?: 'visible' | 'hidden' | 'scroll';
+  overflow?: 'visible' | 'hidden' | 'scroll' | 'overlay';
+  overflowX?: 'visible' | 'hidden' | 'scroll' | 'overlay';
+  overflowY?: 'visible' | 'hidden' | 'scroll' | 'overlay';
+  boxShadow?: string;
 }
 
 export interface IContainerProps {
   children: React.ReactNode;
   styles?: IContainerStyles;
   className?: string;
+  onClick?: () => void;
 }

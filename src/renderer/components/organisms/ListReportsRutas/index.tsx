@@ -17,17 +17,18 @@ const ListReportsRutas = ({ reports }: IListReportsRutasProps) => {
     };
   }, []);
   const columnDefs = [
-    { headerName: 'RUTA', field: 'COBRADOR', width: 250 },
+    { headerName: 'RUTA', field: 'ZONA', width: 250 },
     { headerName: 'SEMANA', field: 'SEMANA', width: 100 },
     { headerName: 'CTAS COBRADAS', field: 'NUM_CTAS_COB', width: 150 },
     { headerName: 'TOTAL CUENTAS', field: 'NUMERO_CTAS', width: 150 },
     { headerName: 'TOTAL COBRADO', field: 'TOTAL_COBRADO', width: 150 },
+    { headerName: 'COBRO X APLICAR', field: 'COBRO_X_APLICAR', width: 120 },
     { headerName: '% COBRO', field: 'PORCENTAJE_COBRO', width: 120 },
-    {
-      headerName: 'COBRO PARCIALMENTE',
-      field: 'PORCENTAJE_COBRO_PARCIALIDAD',
-      width: 150,
-    },
+    // {
+    //   headerName: 'COBRO PARCIALMENTE',
+    //   field: 'PORCENTAJE_COBRO_PARCIALIDAD',
+    //   width: 150,
+    // },
     {
       field: 'HISTORIAL',
       headerName: 'ULTIMAS 10 SEMANAS',

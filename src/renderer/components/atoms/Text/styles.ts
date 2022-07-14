@@ -13,4 +13,5 @@ export const textStyles = css<ITextProps>`
   line-height: ${({ styles }) => styles?.lineHeight || 1};
   margin: ${({ styles }) => styles?.margin || '0px'};
   padding: ${({ styles }) => styles?.padding || '0px'};
+  width: ${({ styles }) => styles?.width || 'auto'};
 `;

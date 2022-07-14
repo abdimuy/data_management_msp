@@ -5,8 +5,12 @@ import styled from 'styled-components';
 type ContainerProps = IContainerProps & IContainerStyles;
 
 const Container = (Props: ContainerProps) => {
-  const { children, className } = Props;
-  return <div className={className}>{children}</div>;
+  const { children, className, onClick } = Props;
+  return (
+    <div onClick={onClick} className={className}>
+      {children}
+    </div>
+  );
 };
 
 const StyledContainer = styled(Container)`

@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Container, Loader, Select } from '../../atoms';
+import { Button, Container, Loader, Select, Text } from '../../atoms';
 import { Title } from 'renderer/components/molecules';
 import getClientes from 'services/api_service/clientes/getClientes';
 import ListClientes from 'renderer/components/organisms/ListClientes';
 import getVentasPorRuta from 'services/api_service/clientes/getVentasPorRuta';
 import getRutas from 'services/api_service/rutas/getRutas';
+import { useNavigate } from 'react-router-dom';
+import { PRIMARY_COLOR } from 'contants';
 
 const Clients = () => {
   const [clientes, setClientes] = useState<any[]>([]);
@@ -12,6 +14,7 @@ const Clients = () => {
   const [search, setSearch] = useState('');
   const [rutas, setRutas] = useState<any[]>([]);
   const [rutaSelected, setRutaSelected] = useState();
+  const navigate = useNavigate();
 
   const handleGetClientes = async (search: string) => {
     try {
@@ -31,7 +34,7 @@ const Clients = () => {
         getRutas(),
         getVentasPorRuta(rutaId),
       ]);
-      console.log(responseRutas);
+      responseRutas;
       setRutas(responseRutas);
       setClientes(responseVentas);
     } catch (err) {
@@ -53,7 +56,7 @@ const Clients = () => {
 
   useEffect(() => {
     // handleGetClientes(search);
-    handleGetData(11294);
+    handleGetData(0);
     // getVentas(11294);
   }, []);
 
@@ -62,10 +65,6 @@ const Clients = () => {
       handleGetVentas(rutaSelected);
     }
   }, [rutaSelected]);
-
-  if (loading) {
-    return <Loader isLoading={loading} />;
-  }
 
   return (
     <Container
@@ -82,9 +81,30 @@ const Clients = () => {
     >
       <Container backgroundColor="transparent" justifyContent="space-between">
         <Title fontSize="30px">Clientes</Title>
-        <Select options={rutas} setValue={setRutaSelected} />
+        <Container gap="10px" backgroundColor="transparent">
+          <Button
+            backgroundColor={PRIMARY_COLOR}
+            onClick={() => navigate('/buscar_cliente')}
+            borderRadius="5px"
+            justifyContent="center"
+            width="180px"
+            alignItems="center"
+          >
+            <Text styles={{ color: 'white', textAlign: 'center' }}>
+              Buscar cliente
+            </Text>
+          </Button>
+          <Select
+            options={[{ COBRADOR: 'TODAS LAS RUTAS' }, ...rutas]}
+            setValue={setRutaSelected}
+          />
+        </Container>
       </Container>
-      <ListClientes ventas={clientes} />
+      {loading ? (
+        <Loader isLoading={loading} />
+      ) : (
+        <ListClientes ventas={clientes} />
+      )}
     </Container>
   );
 };

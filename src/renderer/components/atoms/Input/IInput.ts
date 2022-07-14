@@ -1,6 +1,10 @@
-export interface IPropsInput {
-  value: string | number;
-  onChange: (value: string | number) => void;
+import { ChangeEventHandler } from 'react';
+import { IContainerStyles } from '../Container/IContainer';
+
+export interface IParamsInput {
+  value?: string | number;
+  onChange?: (e: any) => void;
+  onKeyDown?: (e: any) => void;
   onBlur?: () => void;
   onFocus?: () => void;
   placeholder?: string;
@@ -11,3 +15,5 @@ export interface IPropsInput {
   name?: string;
   className?: string;
 }
+
+export type IPropsInput = IParamsInput & IContainerStyles;

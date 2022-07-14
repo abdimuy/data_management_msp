@@ -24,11 +24,12 @@ export const stylesContainer = css<IContainerStyles>`
   min-width: ${({ minWidth = '0px' }) => minWidth};
   max-width: ${({ maxWidth = '100%' }) => maxWidth};
   height: ${({ height = 'auto' }) => height};
-  min-height: ${({ minHeight = '0px' }) => minHeight};
-  max-height: ${({ maxHeight = '100%' }) => maxHeight};
+  min-height: ${({ minHeight = 'auto' }) => minHeight};
+  max-height: ${({ maxHeight = 'fit-content' }) => maxHeight};
   gap: ${({ gap = '0px' }) => gap};
   box-sizing: border-box;
   overflow: ${({ overflow = 'visible' }) => overflow};
   overflow-x: ${({ overflowX = 'visible' }) => overflowX};
   overflow-y: ${({ overflowY = 'visible' }) => overflowY};
+  box-shadow: ${({ boxShadow = 'none' }) => boxShadow};
 `;

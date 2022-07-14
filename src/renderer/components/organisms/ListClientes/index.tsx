@@ -3,17 +3,12 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import dayjs from 'dayjs';
+import { useNavigate } from 'react-router-dom';
 
 import 'ag-grid-enterprise';
 
 const ListClientes = ({ ventas }: IListClientes) => {
-  // const columnDefs = [
-  //   { fields: 'CLIENTE', headerName: 'CLIENTE', width: 200 },
-  //   { fields: 'FECHA', headerName: 'Fecha', width: 200 },
-  //   { fields: 'FREC_PAGO', headerName: 'Frecuencia de Pago', width: 200 },
-  //   { fields: 'PRECIO_TOTAL', headerName: 'Precio Total', width: 200 },
-  //   { fields: 'SALDO_REST', headerName: 'Saldo Restante', width: 200 },
-  // ];
+  const navigate = useNavigate();
 
   const statusBar = {
     statusPanels: [{ statusPanel: 'agAggregationComponent' }],
@@ -73,14 +68,29 @@ const ListClientes = ({ ventas }: IListClientes) => {
             pinned: 'left',
           },
           {
+            headerName: 'RUTA',
+            field: 'RUTA',
+            width: 80,
+            pinned: 'left',
+          },
+          {
             headerName: 'CLIENTE',
             field: 'CLIENTE',
             pinned: 'left',
             width: 250,
+            onCellDoubleClicked(event) {
+              const clienteId = event.data.CLIENTE_ID;
+              navigate('/client/' + clienteId);
+            },
           },
           {
             headerName: 'DOMICILIO',
             field: 'DOMICILIO',
+            width: 250,
+          },
+          {
+            headerName: 'LOCALIDAD',
+            field: 'LOCALIDAD',
             width: 250,
           },
           {
@@ -114,10 +124,10 @@ const ListClientes = ({ ventas }: IListClientes) => {
             field: 'VENDEDORES',
             width: 250,
           },
-          {
-            // headerName: 'PAGO PROMEDIO',
-            // field: 'IMPORTE_PAGO_PROMEDIO',
-          },
+          // {
+          // headerName: 'PAGO PROMEDIO',
+          // field: 'IMPORTE_PAGO_PROMEDIO',
+          // },
           {
             headerName: 'SALDO_REST',
             width: 150,
@@ -142,11 +152,6 @@ const ListClientes = ({ ventas }: IListClientes) => {
               }
             },
           },
-          // {
-          //   headerName: 'PAGOS ATRASADOS',
-          //   width: 150,
-          //   field: 'NUM_PLAZOS_ATRASADO',
-          // },
           {
             headerName: 'PAGOS ATRASADOS',
             width: 150,

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Text } from 'renderer/components/atoms';
 import { IListClientesItemProps } from './IListClientesItem';
 

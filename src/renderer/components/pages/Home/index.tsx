@@ -1,5 +1,11 @@
 const Home = () => {
-  return <div>Inicio</div>;
+  const handleOnClick = () => {};
+  return (
+    // <a href="https://github.com/abdimuy" target="_blank">
+    //   Inicio
+    // </a>
+    <div>Inicio</div>
+  );
 };
 
 export default Home;
