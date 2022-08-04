@@ -6,8 +6,9 @@ import getCliente from 'services/api_service/clientes/getCliente';
 import { useNavigate } from 'react-router-dom';
 import { ERROR_COLOR } from 'contants';
 import { ListPagosVentaItem } from 'renderer/components/organisms';
+import { ClientProps } from './types';
 
-const Client = () => {
+const Client = ({ clienteId }: ClientProps) => {
   const [cliente, setCliente] = useState<any>({});
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>('');
@@ -26,8 +27,11 @@ const Client = () => {
   };
 
   useEffect(() => {
-    handleGetCliente(parseInt(cliente_id));
-  }, []);
+    // handleGetCliente(parseInt(clienteId));
+    if (clienteId !== 0) {
+      handleGetCliente(clienteId);
+    }
+  }, [clienteId]);
 
   if (loading) {
     return <Loader isLoading={true} />;
@@ -45,9 +49,9 @@ const Client = () => {
       gap="15px"
       width="100%"
       backgroundColor="transparent"
-      overflowY="scroll"
+      // overflowY="scroll"
     >
-      <Button
+      {/* <Button
         height="30px"
         width="60px"
         justifyContent="center"
@@ -58,7 +62,7 @@ const Client = () => {
         onClick={() => navigate(-1)}
       >
         Volver
-      </Button>
+      </Button> */}
       <Title fontSize="30px">Información del cliente</Title>
       <Container
         flexDirection="column"

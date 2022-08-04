@@ -61,7 +61,8 @@ const Clients = () => {
   }, []);
 
   useEffect(() => {
-    if (rutaSelected) {
+    if (rutaSelected !== undefined) {
+      console.log(rutaSelected);
       handleGetVentas(rutaSelected);
     }
   }, [rutaSelected]);
@@ -81,7 +82,7 @@ const Clients = () => {
     >
       <Container backgroundColor="transparent" justifyContent="space-between">
         <Title fontSize="30px">Clientes</Title>
-        <Container gap="10px" backgroundColor="transparent">
+        <Container gap="10px" backgroundColor="transparent" width="60%">
           <Button
             backgroundColor={PRIMARY_COLOR}
             onClick={() => navigate('/buscar_cliente')}
@@ -95,7 +96,10 @@ const Clients = () => {
             </Text>
           </Button>
           <Select
-            options={[{ COBRADOR: 'TODAS LAS RUTAS' }, ...rutas]}
+            options={[
+              { COBRADOR: 'TODAS LAS RUTAS', COBRADOR_ID: 0 },
+              ...rutas,
+            ]}
             setValue={setRutaSelected}
           />
         </Container>

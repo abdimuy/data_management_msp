@@ -24,11 +24,11 @@ const ListReportsRutas = ({ reports }: IListReportsRutasProps) => {
     { headerName: 'TOTAL COBRADO', field: 'TOTAL_COBRADO', width: 150 },
     { headerName: 'COBRO X APLICAR', field: 'COBRO_X_APLICAR', width: 120 },
     { headerName: '% COBRO', field: 'PORCENTAJE_COBRO', width: 120 },
-    // {
-    //   headerName: 'COBRO PARCIALMENTE',
-    //   field: 'PORCENTAJE_COBRO_PARCIALIDAD',
-    //   width: 150,
-    // },
+    {
+      headerName: 'PROM. COBRO PARCIALMENTE',
+      field: 'PORCENTAJE_COBRO_PARCIALIDAD',
+      width: 150,
+    },
     {
       field: 'HISTORIAL',
       headerName: 'ULTIMAS 10 SEMANAS',

@@ -64,7 +64,7 @@ const SearchClient = () => {
           placeholder="Buscar por nombre o domicío"
           borderRadius="5px"
           value={search}
-          // onChange={(e) => handleInputChange(e)}
+          onChange={(e) => handleInputChange(e)}
           onKeyDown={(e) => handleEnter(e)}
         />
         <Button
@@ -98,6 +98,7 @@ const SearchClient = () => {
               paddingVertical="8px"
               boxShadow="3px 3px 6px 0px rgb(0 0 0 / 10%)"
               onClick={() => handleOpenClient(client.CLIENTE_ID)}
+              key={client.CLIENTE_ID}
             >
               <Text styles={{ fontSize: '14px', width: '30%' }}>
                 {client.NOMBRE}

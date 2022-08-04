@@ -9,7 +9,7 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import { app, BrowserWindow, shell, ipcMain, BrowserView } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -23,7 +23,7 @@ export default class AppUpdater {
   }
 }
 
-let mainWindow: BrowserWindow | null = null;
+export let mainWindow: BrowserWindow | null = null;
 
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
@@ -91,6 +91,25 @@ const createWindow = async () => {
       mainWindow.minimize();
     } else {
       mainWindow.show();
+      // const child = new BrowserWindow({
+      //   parent: mainWindow,
+      //   modal: true,
+      //   show: false,
+      //   webPreferences: {
+      //     preload: app.isPackaged
+      //       ? path.join(__dirname, 'preload.js')
+      //       : path.join(__dirname, '../../.erb/dll/preload.js'),
+      //   },
+      // });
+      // const view = new BrowserView();
+      // child.setBrowserView(view);
+      // view.setBounds({ x: 0, y: 0, width: 300, height: 300 });
+      // view.webContents.loadURL('http://localhost:1212/clientes');
+      // child.show();
+      // child.loadURL('http://localhost:1212/clientes');
+      // child.once('ready-to-show', () => {
+      //   child.show();
+      // });
     }
   });
 

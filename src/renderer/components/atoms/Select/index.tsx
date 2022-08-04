@@ -18,7 +18,7 @@ const Select = ({ options, setValue }: ISelect) => {
         container: (base: any) => ({
           ...base,
           width: '100%',
-          maxWidth: '500px',
+          maxWidth: '800px',
         }),
       }}
     />
